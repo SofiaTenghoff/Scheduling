@@ -362,16 +362,6 @@ Friday = date(2024, 6, 7).weekday()
 # create a graphic user interface window
 window = tk.Tk()
 
-# create the normal button
-norm_button = tk.Button(window, text="Normal Five Day Week", 
-    command=norm_button_clicked)
-
-norm_button.grid(column = 1, row =1)
-
-# output label
-output_label = tk.Label(window, text = "")
-output_label.grid(column=1, row=3, columnspan=3)
-
 # define a function that displays what will be printed when the button is clicked
 def norm_button_clicked():
 
@@ -387,10 +377,17 @@ def norm_button_clicked():
     if date.today().weekday() == Friday:
         messages = Esched
     update_label(output_label, messages)
+    
+# create the normal button
+norm_button = tk.Button(window, text="Normal Five Day Week", 
+    command=norm_button_clicked)
 
-# define a function that explains what will happen when the four day week with H Monday is clicked
-H_Monday_button = tk.Button(window, text="Four-day Week with H schedule on Monday", 
-    command=four_day_H_Monday)
+norm_button.grid(column = 1, row =1)
+
+# output label
+output_label = tk.Label(window, text = "")
+output_label.grid(column=1, row=3, columnspan=3)
+
 def four_day_H_Monday():
     messages = []
     if date.today().weekday() == Monday:
@@ -403,10 +400,10 @@ def four_day_H_Monday():
         messages = Gsched()
     update_label(output_label, messages)
 
-# define a function that explains what will happen when the four day week with H Tuesday is clicked
-# define the message that the H Tuesday button displays
-H_Tuesday_button = tk.Button(window, text="Four-day Week with H schedule on Tuesday", 
-                             command=four_day_H_Tuesday)
+# define a function that explains what will happen when the four day week with H Monday is clicked
+H_Monday_button = tk.Button(window, text="Four-day Week with H schedule on Monday", 
+    command=four_day_H_Monday)
+
 def four_day_H_Tuesday():
     messages = []
     if date.today().weekday() == Tuesday:
@@ -418,11 +415,13 @@ def four_day_H_Tuesday():
     if date.today().weekday() == Friday:
         messages = Gsched()
     update_label(output_label, messages)
+# define a function that explains what will happen when the four day week with H Tuesday is clicked
+# define the message that the H Tuesday button displays
+H_Tuesday_button = tk.Button(window, text="Four-day Week with H schedule on Tuesday", 
+                             command=four_day_H_Tuesday)
+
 
 # define a function that explains what will happen when the four day week with H Thursday is clicked
-# define the message that the H Thursday button displays
-H_Thursday_button = tk.Button(window, text="Four-day Week with H schedule on Thursday", 
-                              command=four_day_H_Thursday)
 def four_day_H_Thursday():
     messages = []
     if date.today().weekday() == Monday:
@@ -434,11 +433,12 @@ def four_day_H_Thursday():
     if date.today().weekday() == Thursday:
         messages = Hsched()
     update_label(output_label, messages)
+# define the message that the H Thursday button displays
+H_Thursday_button = tk.Button(window, text="Four-day Week with H schedule on Thursday", 
+                              command=four_day_H_Thursday)
+
 
 # define a function that explains what will happen when the four day week with H Friday is clicked
-# define the message that the H Friday button displays
-H_Friday_button = tk.Button(window, text="Four-day Week with H schedule on Friday", 
-                            command=four_day_H_Friday)
 def four_day_H_Friday():
     messages = []
     if date.today().weekday() == Tuesday:
@@ -450,11 +450,12 @@ def four_day_H_Friday():
     if date.today().weekday() == Friday:
         messages = Hsched()
     update_label(output_label, messages)
+# define the message that the H Friday button displays
+H_Friday_button = tk.Button(window, text="Four-day Week with H schedule on Friday", 
+                            command=four_day_H_Friday)
+
 
 # define a function that explains what will happen when five day week with early dismissal Friday is clicked
-# define the message that the early dismissal button displays
-Early_dismissal_button = tk.Button(window, text="Five-day Week with Early Dismissal on Friday", 
-                                   command=early_dismissal_Fri)
 def early_dismissal_Fri():
     messages = []
     if date.today().weekday() == Monday:
@@ -468,6 +469,10 @@ def early_dismissal_Fri():
     if date.today().weekday() == Friday:
         messages = Esched_early_dismissal()
     update_label(output_label, messages)
+# define the message that the early dismissal button displays
+Early_dismissal_button = tk.Button(window, text="Five-day Week with Early Dismissal on Friday", 
+                                   command=early_dismissal_Fri)
+
 
 
     
